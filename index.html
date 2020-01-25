@@ -12,26 +12,38 @@
     <!-- import the webpage's javascript file -->
     <script src="/index.js" defer></script>
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js">
-  
+  AFRAME.registerPrimitive('a-ocean', {
+  // Attaches the `ocean` component by default.
+  // Defaults the ocean to be parallel to the ground.
+  defaultComponents: {
+    ocean: {},
+    rotation: {x: -90, y: 0, z: 0}
+  },
+
+  // Maps HTML attributes to the `ocean` component's properties.
+  mappings: {
+    width: 'ocean.width',
+    depth: 'ocean.depth',
+    density: 'ocean.density',
+    color: 'ocean.color',
+    opacity: 'ocean.opacity'
+  }
+});
     </script>
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="cornflowerblue"></a-box>
-      <a-sphere position="0 1.6 -7" radius="2" color="cyan"></a-sphere>
-      <a-sphere position="random-position" radius=".08" color="white"></a-sphere>
-      <a-sphere position="random-position" radius=".08" color="white"></a-sphere>
-      <a-sphere position="3 5 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="0 5 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="2 5 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="3.5 5 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="8 10 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="-4 -10 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="-3 -3 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="-3.2 4 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="-4.5 1 -7" radius=".08" color="white"></a-sphere>
-      <a-sphere position="-4.8 -2 -7" radius=".08" color="white"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.4" height="1" color="salmon"></a-cylinder>
+
+        <!-- sun and planets -->
+        <a-sphere position="-9 1.6 -7" radius="4" color="yellow"></a-sphere>
+        <a-sphere position="-3.8 1.6 -7" radius=".25" color="grey"></a-sphere>
+        <a-sphere position="-2.8 1.6 -7" radius=".4" color="#ffbf00"></a-sphere>
+        <a-sphere position="-0.5 1.6 -7" radius=".6" color="cornflowerblue"></a-sphere>
+
+        <!-- stars -->
+        <a-sphere position="3 5 -8" radius=".08" color="white"></a-sphere>
+        <a-sphere position="1 2 -5" radius=".08" color="white"></a-sphere>
+        <a-sphere position="3 5 -7" radius=".08" color="white"></a-sphere>
       <a-sky color="black"></a-sky>
     </a-scene>
   </body>
